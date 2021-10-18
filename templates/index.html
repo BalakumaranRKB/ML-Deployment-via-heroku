@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict the price of housing in Boston</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <input type="number" step = "any" name="residential_land_zoned_for_lots" id="residential_land_zoned_for_lots" placeholder="Residential Land zoned for lots" style="width: 200px;"><br>
+            <label for="Charles_River">Living by Charles River ?:</label>
+            <select name="Charles_River" id="Charles_River">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+            </select><br>
+
+            <input type="number" step  = "any" name="NOX_concentration" id="NOX_concentration" placeholder="NOX concentration (parts per 10 million)" style="width: 290px;"><br>
+            <input type="number" step = "any" name="avg_no_of_rooms_per_dwelling" id="avg_no_of_rooms_per_dwelling" placeholder="Avg No of Rooms per dwelling" style="width: 220px;"><br>
+            <input type="number" step = "any" name="Dis_to_Employment_Centre" id="Dis_to_Employment_Centre" placeholder="Distance to Boston Employment Centres " style="width: 270px;"><br>
+            <input type="number" step = "any" name="pupil_teacher_ratio" id="pupil_teacher_ratio" placeholder="Pupil Teacher ratio per town" style="width: 200px;"><br>
+            <input type="number" step = "any" name="proportion_of_blacks" id="proportion_of_blacks" placeholder="proportion of African American per 1000" style="width: 250px;"><br>
+            <input type="number" step = "any" name="lower_status_of_population" id="lower_status_of_population"placeholder="% of lower status of population" step="any" style="width: 220px;"><br>
+            <input type="number" step = "any" name="crime_rate" id="crime_rate"placeholder="Crime Rate" maxlength="50"><br>
+            <input type="submit" value="Predict" style="width: 200px;">
+        </form>
+    </div>
+</div>
+{% endblock %}
